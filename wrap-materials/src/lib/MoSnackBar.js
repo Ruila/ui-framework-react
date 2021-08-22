@@ -5,11 +5,9 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
 export default function MoSnackBar({position, show, close}) {
-    const [open, setOpen] = React.useState(false);
-
     return (
         <div>
-            <div>ccccfffffcc{show}</div>
+            <div>test{show}</div>
             <Snackbar
                 anchorOrigin={{
                     vertical: 'bottom',

@@ -1,0 +1,29 @@
+name: Prepare release NPM
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'publish version'
+        required: true
+      base:
+        description: 'base version'
+        required: true
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create release and Generate release note
+        uses: nextDriveIoE/release-note-generator-action@master
+        with:
+          github_token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+          base_version: ${{ github.event.inputs.base }}
+          current_version: ${{ github.event.inputs.version }}

@@ -1,8 +1,10 @@
 # Workflow name
 name: 'Chromatic Deployment'
 
-# Event for the workflow
-on: push
+on:
+  push:
+    tags:
+      - '*.*.*'
 
 # List of jobs
 jobs:

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import { bool, string } from 'prop-types';
+import QrReader from 'react-qr-scanner';
+import { withStyles } from '@material-ui/styles';
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -15,20 +18,38 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 MoQrScanner.propTypes = {
   show: bool,
-  handleOpen: ()=>{},
-  handleClose: ()=>{}
+  handleClose: ()=>{},
+  getResult: ()=>{}
 }
 
-export default function MoQrScanner (props) {
-  const { show, handleOpen, handleClose } = props
+const previewStyle = {
+  width: "100%",
+}
+
+const dialogStyle = {
+  root: {
+     "backgroundColor": "#000"
+  },
+};
+
+function MoQrScanner (props) {
+  const { show, handleClose, getResult } = props
+  const handleScan = (data) => {
+    if(data) {
+      getResult(data.text)
+      handleClose()
+    }
+  }
+  const handleError = (err) => {
+    console.error(err)
+  }
   return (
     <div>
-      {show?"true":"false"}, 
-      <Button variant="outlined" onClick={handleOpen}>
-        Open full-screen dialog
-      </Button>
       <Dialog
         fullScreen
+        classes={{
+          root: dialogStyle.root
+        }}
         open={show}
         onClose={handleClose}
         TransitionComponent={Transition}
@@ -51,8 +72,15 @@ export default function MoQrScanner (props) {
             </Button>
           </Toolbar>
         </AppBar>
-       
+        <QrReader
+          delay={100}
+          style={previewStyle}
+          onError={handleError}
+          onScan={handleScan}
+          />
       </Dialog>
     </div>
   );
 }
+
+export default withStyles(dialogStyle)(MoQrScanner);

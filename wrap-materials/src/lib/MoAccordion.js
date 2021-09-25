@@ -42,7 +42,7 @@ const Accordion = withStyles({
 
 const AccordionDetails = withStyles((theme) => ({
     root: {
-        padding: theme.spacing(2),
+        padding: "4px",
     },
 }))(MuiAccordionDetails);
 

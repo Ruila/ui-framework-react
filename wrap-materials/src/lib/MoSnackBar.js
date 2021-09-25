@@ -3,11 +3,18 @@ import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import { bool, string } from 'prop-types';
 
-export default function MoSnackBar({position, show, close}) {
+MoSnackBar.propTypes = {
+    position: string,
+    show: bool
+};
+
+export default function MoSnackBar(props) {
+    const {position, show, close } = props
     return (
         <div>
-            <div>test{show}</div>
+            <div>status:{ show ? "true" : "false" }</div>
             <Snackbar
                 anchorOrigin={{
                     vertical: 'bottom',

@@ -1,6 +1,5 @@
 import React, {useState} from "react";
-import MoButton from "./lib/MoButton";
-import MoSnackBar from "./lib/MoSnackBar";
+import {MoButton, MoSnackBar, MoQrScanner} from "./lib"
 
 function App () {
     const [state, setState] = useState(1);
@@ -18,7 +17,8 @@ function App () {
           <span>Counter: {state}</span>
           <MoButton click={handleClick} label="open"></MoButton>
           <MoButton click={handleClose} label="close"></MoButton>
-          <MoSnackBar position="right" show={show}></MoSnackBar>
+          <MoSnackBar position="right" show={show} close={handleClose}></MoSnackBar>
+          <MoQrScanner />
       </div>
   )
 }

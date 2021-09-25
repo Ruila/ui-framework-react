@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MoButton, MoQrScanner} from "../lib"
 
 export default {
@@ -11,18 +11,24 @@ export default {
 
 
 const Template = (args) => {
-    const [open, setOpen] = React.useState(false);
-    const handleClick = () => {
+    const [open, setOpen] = useState(false);
+    const [result, setResult] = useState("");
+    const handleOpen = () => {
         console.log("click open")
         setOpen(true)
     }
     const handleClose = () => {
+        console.log("click close")
         setOpen(false)
+    }
+    const getResult = (data) => {
+        setResult(data)
     }
     return (
         <div>
-           <MoButton label="open" click={handleClick}></MoButton>
-           <MoQrScanner show={open} handleClick={handleClick} handleClose={handleClose} />
+           <MoButton label="open" click={handleOpen}></MoButton>
+           <MoQrScanner show={open} handleClose={handleClose} getResult={getResult}/>
+           <div>result: {result}</div>
         </div>
     )
 }

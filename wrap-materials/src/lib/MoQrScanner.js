@@ -15,21 +15,21 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 MoQrScanner.propTypes = {
   show: bool,
-  handleClickOpen: ()=>{},
+  handleOpen: ()=>{},
   handleClose: ()=>{}
 }
 
 export default function MoQrScanner (props) {
-  const { show, handleClickOpen, handleClose } = props
+  const { show, handleOpen, handleClose } = props
   return (
     <div>
       {show?"true":"false"}, 
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={handleOpen}>
         Open full-screen dialog
       </Button>
       <Dialog
         fullScreen
-        open={true}
+        open={show}
         onClose={handleClose}
         TransitionComponent={Transition}
       >

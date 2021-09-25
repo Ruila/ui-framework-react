@@ -19,7 +19,7 @@ const accordionData = [{
   },
   {
     title: "c",
-    content: "as"
+    content: "ass"
   }
 ]
 

@@ -12,17 +12,18 @@ export default {
 
 const Template = (args) => {
     const [open, setOpen] = React.useState(false);
-    const handleClick = () => {
+    const handleOpen = () => {
         console.log("click open")
         setOpen(true)
     }
     const handleClose = () => {
+        console.log("click close")
         setOpen(false)
     }
     return (
         <div>
-           <MoButton label="open" click={handleClick}></MoButton>
-           <MoQrScanner show={open} handleClick={handleClick} handleClose={handleClose} />
+           <MoButton label="open" click={handleOpen}></MoButton>
+           <MoQrScanner show={open} handleOpen={handleOpen} handleClose={handleClose} />
         </div>
     )
 }

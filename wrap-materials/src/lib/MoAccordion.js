@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';

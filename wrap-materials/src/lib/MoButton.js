@@ -5,13 +5,16 @@ import Button from '@material-ui/core/Button';
 
 const styles = {
     root: {
-        background: '#30b3ff',
-        border: 0,
+        background: '#fff',
+        border: "2px solid #060606!important",
         borderRadius: 3,
-        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-        color: 'white',
-        height: 60,
-        padding: '0 30px',
+        width: "120px",
+        color: '#060606',
+        padding: '10px 20px',
+        '&:hover': {
+            background: "#060606",
+            color: "#fff"
+        }
     },
 };
 

@@ -40,9 +40,9 @@ const Accordion = withStyles({
     expanded: {},
 })(MuiAccordion);
 
-const AccordionDetails = withStyles(() => ({
+const AccordionDetails = withStyles((theme) => ({
     root: {
-        padding: "4px",
+      
     },
 }))(MuiAccordionDetails);
 

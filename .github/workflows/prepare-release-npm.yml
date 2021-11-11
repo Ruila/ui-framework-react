@@ -22,7 +22,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create release and Generate release note
-        uses: nextDriveIoE/release-note-generator-action@master
         with:
           github_token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
           base_version: ${{ github.event.inputs.base }}

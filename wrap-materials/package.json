@@ -1,6 +1,6 @@
 {
   "name": "components-modules",
-  "version": "0.1.12",
+  "version": "0.1.16",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",

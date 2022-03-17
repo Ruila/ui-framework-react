@@ -1,3 +1,2 @@
-# react-for-importing (Disabled)
-This projects is a library of components based on Material UI
-URL deployed on AWS: https://main.d7207dea5vt1u.amplifyapp.com/?path=/story/example-accordions--overview
+# react-for-importing
+This projects is a library of components based on Material UI and practice publishing it to npm.

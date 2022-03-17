@@ -17,11 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set env
-        run: echo "RELEASE_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-
-      - name: Get version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -32,9 +28,6 @@ jobs:
       - name: run build
         run: |
           cd wrap-materials/
-          yarn
-          yarn build
-          yarn version --no-git-tag-version --no-commit-hooks --new-version ${{ steps.get_version.outputs.VERSION }}
-          yarn publish
+
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

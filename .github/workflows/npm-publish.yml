@@ -16,14 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Extract release notes
-        id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v1
-
-
       - name: Set env
-        run: echo "RELEASE_VERSION=${{ steps.extract-release-notes.outputs.release_notes }}" >> $GITHUB_ENV
+        run: echo "latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_ENV
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -33,6 +27,9 @@ jobs:
       - name: run build
         run: |
           cd wrap-materials/
-
+          yarn
+          yarn build
+          yarn version --no-git-tag-version --no-commit-hooks --new-version ${{ env.latest_tag }}
+          yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

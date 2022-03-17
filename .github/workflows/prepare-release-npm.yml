@@ -21,7 +21,3 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          github_token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
-          base_version: ${{ github.event.inputs.base }}
-          current_version: ${{ github.event.inputs.version }}

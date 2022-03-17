@@ -1,9 +1,9 @@
 name: Publish to Github Packages
 
 on:
-  push:
-    tags:
-      - '*'
+  workflow_run:
+    workflows: [ Prepare release NPM ]
+    types: [ completed ]
 
 jobs:
   build:

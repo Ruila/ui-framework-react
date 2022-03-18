@@ -11,14 +11,12 @@ MoAccordions.prototype = {
     headerBgColor: PropTypes.string,
     expandedHeaderBgColor: PropTypes.string
 }
-const useStyles = makeStyles((aa)=>{
-    console.log("check", aa)
-    return {
-        root: {
-            backgroundColor: props => props.headerBgColor,
-            color: "#fff"
+const useStyles = makeStyles({
+    root: {
+        "&.MuiAccordionSummary-root": {
+            backgroundColor: props => props.headerBgColor
         },
-        expanded: {
+        "&.MuiAccordionSummary-root.Mui-expanded": {
             backgroundColor: props => props.expandedHeaderBgColor
         }
     }
@@ -40,7 +38,7 @@ const Accordion = withStyles({
     expanded: {},
 })(MuiAccordion);
 
-const AccordionDetails = withStyles((theme) => ({
+const AccordionDetails = withStyles(() => ({
     root: {
       
     },
@@ -58,8 +56,7 @@ export default function MoAccordions({data, headerBgColor, expandedHeaderBgColor
             <Accordion square key={index} expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}>
                 <MuiAccordionSummary
                     classes={{
-                        root: classes.root,
-                        expanded: classes.expanded
+                        root: classes.root
                     }}
                 >
                     <Typography>Header #{index}</Typography>

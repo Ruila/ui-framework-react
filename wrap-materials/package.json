@@ -2,6 +2,7 @@
   "name": "components-modules",
   "version": "0.1.17",
   "license": "MIT",
+  "homepage": "http://Ruila.github.io/ui-framework-react",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -25,6 +26,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "components-modules": "^0.1.11",
+    "gh-pages": "^3.2.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -38,7 +40,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "eslintConfig": {
     "extends": [

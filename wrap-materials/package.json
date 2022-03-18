@@ -2,7 +2,7 @@
   "name": "components-modules",
   "version": "0.1.17",
   "license": "MIT",
-  "homepage": "http://Ruila.github.io/ui-framework-react",
+  "homepage": "https://Ruila.github.io/ui-framework-react",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [

@@ -1,5 +1,5 @@
 # purpose
-Make a library of components based on Material UI and practice publishing it to npm.
+Developing a library of components based on Material UI and practice publishing it to npm.
 
 link: https://ruila.github.io/ui-framework-react/
 

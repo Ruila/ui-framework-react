@@ -30,19 +30,3 @@ jobs:
             body: ${{steps.github_release.outputs.changelog}}
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          always-auth: true
-          node-version: ${{ matrix.node-version }}
-          registry-url: 'https://registry.npmjs.org'
-      - name: run build
-        run: |
-              cd wrap-materials/
-              yarn
-              yarn build
-              yarn version --no-git-tag-version --no-commit-hooks --new-version ${{ github.event.inputs.version }}
-              yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

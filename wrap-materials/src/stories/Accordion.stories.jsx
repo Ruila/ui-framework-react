@@ -23,7 +23,7 @@ const accordionData = [{
   }
 ]
 
-const Template = (args) => <MoAccordions {...args} >aa</MoAccordions>;
+const Template = (args) => <MoAccordions {...args} />;
 
 export const Overview = Template.bind({});
 Overview.args = {

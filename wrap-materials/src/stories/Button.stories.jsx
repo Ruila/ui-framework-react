@@ -9,7 +9,7 @@ export default {
   },
 };
 
-const Template = (args) => <MoButton {...args} >aa</MoButton>;
+const Template = (args) => <MoButton {...args} />;
 
 export const Overview = Template.bind({});
 Overview.args = {

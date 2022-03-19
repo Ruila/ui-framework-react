@@ -5,28 +5,29 @@ import Button from '@material-ui/core/Button';
 
 const styles = {
     root: {
-        background: '#fff',
-        border: "2px solid #060606!important",
+        background: '#96e3ff',
+        border: "2px solid #4094ee!important",
         borderRadius: 3,
         width: "120px",
-        color: '#060606',
+        color: '#4094ee',
         padding: '10px 20px',
         '&:hover': {
-            background: "#060606",
+            background: "#4094ee",
             color: "#fff"
         }
     },
 };
 
-function MoButton(props) {
-    const { classes, label, click } = props;
+function MoButton({ classes, label, click }) {
     return <Button className={classes.root} onClick={click}>{label}</Button>;
 }
 
 MoButton.propTypes = {
     classes: PropTypes.object.isRequired,
     label: PropTypes.string,
-    click: PropTypes.func
+    click: PropTypes.func,
+    backgroundColor: PropTypes.string,
+    hoverBackgroundColor: PropTypes.string,
 };
 
 export default withStyles(styles)(MoButton);

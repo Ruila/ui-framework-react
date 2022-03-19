@@ -11,15 +11,15 @@ export default {
 
 const accordionData = [{
   title: "a",
-  content: "as"
+  content: "Accordion 1"
 },
   {
     title: "b",
-    content: "as"
+    content: "Accordion 2"
   },
   {
     title: "c",
-    content: "asss"
+    content: "Accordion 3"
   }
 ]
 
@@ -28,6 +28,7 @@ const Template = (args) => <MoAccordions {...args} >aa</MoAccordions>;
 export const Overview = Template.bind({});
 Overview.args = {
   data: accordionData,
-  headerBgColor: "#d85454",
-  expandedHeaderBgColor: "#4ea8ff"
+  titleColor: "#fff",
+  headerBgColor: "#66c6fc",
+  expandedHeaderBgColor: "#96e3ff",
 };

@@ -9,12 +9,17 @@ import PropTypes from 'prop-types';
 MoAccordions.prototype = {
     data: PropTypes.array,
     headerBgColor: PropTypes.string,
-    expandedHeaderBgColor: PropTypes.string
+    expandedHeaderBgColor: PropTypes.string,
+    titleColor: PropTypes.string
 }
+
 const useStyles = makeStyles({
     root: {
         "&.MuiAccordionSummary-root": {
             backgroundColor: props => props.headerBgColor
+        },
+        "&.MuiAccordionSummary-root .MuiAccordionSummary-content": {
+            color: props => props.titleColor
         },
         "&.MuiAccordionSummary-root.Mui-expanded": {
             backgroundColor: props => props.expandedHeaderBgColor
@@ -44,9 +49,9 @@ const AccordionDetails = withStyles(() => ({
     },
 }))(MuiAccordionDetails);
 
-export default function MoAccordions({data, headerBgColor, expandedHeaderBgColor}) {
+export default function MoAccordions({data, headerBgColor, expandedHeaderBgColor, titleColor}) {
     const [expanded, setExpanded] = React.useState('panel1');
-    const classes = useStyles({ headerBgColor, expandedHeaderBgColor });
+    const classes = useStyles({ headerBgColor, expandedHeaderBgColor, titleColor });
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
@@ -59,11 +64,11 @@ export default function MoAccordions({data, headerBgColor, expandedHeaderBgColor
                         root: classes.root
                     }}
                 >
-                    <Typography>Header #{index}</Typography>
+                    <Typography>Header {titleColor} #{index}</Typography>
                 </MuiAccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        ss
+                        {item.content}
                     </Typography>
                 </AccordionDetails>
             </Accordion>
